@@ -23,6 +23,9 @@
     <select id="selectCityById" resultType="City">
         select * from city where id = #{id}
     </select>
+    <select id="countCityByCreatedBy" resultType="long">
+        select count(*) from city where created_by like #{createdBy}
+    </select>
     <!-- 二级缓存 -->
     <!--<cache/>-->
 </mapper>

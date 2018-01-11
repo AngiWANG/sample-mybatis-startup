@@ -23,7 +23,6 @@ import wang.angi.sample.mybatis.startup.domain.Country;
 /**
  * @author Eddú Meléndez
  */
-@Mapper
 public interface CountryMapper {
 
 	@Select("select * from country where id = #{id}")

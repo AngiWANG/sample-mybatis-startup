@@ -21,7 +21,6 @@ import wang.angi.sample.mybatis.startup.domain.Hotel;
 /**
  * @author Eduardo Macarron
  */
-@Mapper
 public interface HotelMapper {
 
 	Hotel selectHotelById(int id);

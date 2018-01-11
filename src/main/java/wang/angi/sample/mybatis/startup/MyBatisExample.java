@@ -22,6 +22,7 @@ public class MyBatisExample {
 			// 一级缓存开启时，下面的sql不会触发执行
 			City city1 = sqlSession.selectOne("selectCityById", 1);
 			System.out.println(city);
+			System.out.println(sqlSession.selectOne("countCityByCreatedBy","Angi").toString());
 		} finally {
 			sqlSession.close();
 		}
