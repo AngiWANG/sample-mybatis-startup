@@ -23,8 +23,14 @@ public class MyBatisExample {
 			City city1 = sqlSession.selectOne("selectCityById", 1);
 			System.out.println(city);
 			System.out.println(sqlSession.selectOne("countCityByCreatedBy","Angi").toString());
+			sqlSession.commit();
+		} catch (Throwable e) {
+			System.out.println(e);
+			sqlSession.rollback();
 		} finally {
-			sqlSession.close();
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
 		}
 		try {
 			sqlSession = MyBatisUtil.getSqlSessionFactory().openSession();
@@ -32,8 +38,14 @@ public class MyBatisExample {
 			// 二级缓存开启时，下面的sql不会触发执行
 			City city2 = sqlSession.selectOne("selectCityById", 1);
 			System.out.println(city2);
+			sqlSession.commit();
+		} catch (Throwable e) {
+			System.out.println(e);
+			sqlSession.rollback();
 		} finally {
-			sqlSession.close();
+			if (sqlSession != null) {
+				sqlSession.close();
+			}
 		}
 	}
 }
